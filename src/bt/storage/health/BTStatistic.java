@@ -1,0 +1,89 @@
+package bt.storage.health;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+public abstract class BTStatistic
+{
+    public final String name;
+    public final String groupName;
+    public final boolean isDisplayed;
+        
+    public BTStatistic (String name, String groupName, boolean isDisplayed)
+    {
+        this.name = name;
+        this.groupName = groupName;
+        this.isDisplayed = isDisplayed;
+    }
+    public static class BTStatBoolean extends BTStatistic
+    {
+        private boolean val;
+        
+        public BTStatBoolean(String valname,String groupName, boolean val, boolean isDisplayed)
+        {
+            super(valname,groupName,isDisplayed);
+            this.val = val;
+            updateVal(val);
+        }
+        public void display()
+        {
+            if (isDisplayed)
+            {
+                SmartDashboard.putBoolean(name, val);
+            }
+        }
+        public void updateVal(boolean val)
+        {
+            this.val = val;
+            display();
+            //TODO: add code to check against perams
+        }
+    }
+    public static class BTStatString extends BTStatistic
+    {
+        private String val;
+        
+        public BTStatString(String valname,String groupName, String val, boolean isDisplayed)
+        {
+            super(valname,groupName,isDisplayed);
+            this.val = val;
+            updateVal(val);
+        }
+        public void display()
+        {
+            if (isDisplayed)
+            {
+                SmartDashboard.putString(name, val);
+            }
+        }
+        public void updateVal(String val)
+        {
+            this.val = val;
+            display();
+            //TODO: add code to check against perams
+        }
+    }
+    public static class BTStatNum extends BTStatistic
+    {
+        private double val;
+        
+        public BTStatNum(String valname,String groupName, double val, boolean isDisplayed)
+        {
+            super(valname,groupName,isDisplayed);
+            this.val = val;
+            updateVal(val);
+        }
+        public void display()
+        {
+            if (isDisplayed)
+            {
+                SmartDashboard.putNumber(name, val);
+            }
+        }
+        public void updateVal(double val)
+        {
+            this.val = val;
+            display();
+            //TODO: add code to check against perams
+        }
+    }
+}
