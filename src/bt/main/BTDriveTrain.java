@@ -57,11 +57,11 @@ public class BTDriveTrain {
         //Chooses which code to run based on the drivetrain in use
         if(isTankDrive)
         {
-            mecanum();
+            tankDrive();
         }
         else
         {
-            tankDrive();
+            mecanum();
         }
     }
     
@@ -120,9 +120,9 @@ public class BTDriveTrain {
         
         //Sets the motors
         storage.data.MOTOR_FR.setX(u);
-        storage.data.MOTOR_FL.setX(-v);
+        storage.data.MOTOR_FL.setX(-v); // Electronic mistake
         storage.data.MOTOR_BR.setX(u);
-        storage.data.MOTOR_BL.setX(-v);
+        storage.data.MOTOR_BL.setX(-v); // Electronic mistake
     }
     
     public void mecanum()
