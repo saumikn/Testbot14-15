@@ -147,10 +147,10 @@ public class BTDriveTrain
         v = v * Math.abs(v);
         
         // Sets the motors
-        storage.data.MOTOR_FR.setX(u);
-        storage.data.MOTOR_FL.setX(-v); // Electronic mistake
-        storage.data.MOTOR_BR.setX(u);
-        storage.data.MOTOR_BL.setX(-v); // Electronic mistake
+        storage.data.MOTOR_FR.setX(REVERSE_FR ? -1 : 1 * u);
+        storage.data.MOTOR_FL.setX(REVERSE_FL ? -1 : 1 * v); // Electronic mistake
+        storage.data.MOTOR_BR.setX(REVERSE_BR ? -1 : 1 * u);
+        storage.data.MOTOR_BL.setX(REVERSE_BL ? -1 : 1 * v); // Electronic mistake
     }
     
     /**
